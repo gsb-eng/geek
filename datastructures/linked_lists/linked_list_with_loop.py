@@ -50,7 +50,6 @@ class LinkedList(object):
             return cur_node
         while cur_node is not loop_node:
             if cur_node is node:
-                print "Node found" + str(node.data)
                 return node
             cur_node = cur_node.next
 
@@ -58,14 +57,11 @@ class LinkedList(object):
         reachable_node = None
         cur_node = self.head
         loop_node = self.is_loop_exists()
-        print "loop node is " + str(loop_node.data)
         if loop_node:
             while cur_node.next:
                 reachable_node = self.is_node_reachable(cur_node, loop_node)
                 if reachable_node:
-                    print "Reachable node " + str(reachable_node.data)
                     break
-                print " Current " + str(cur_node.data)
                 cur_node = cur_node.next
 
         while True:
@@ -79,8 +75,10 @@ loop = Node(4)
 ll.insert(loop)
 ll.insert(Node(1))
 ll.insert(Node(2))
-ll.insert(Node(12))
+ll.insert(Node(0))
 ll.insert(Node(3))
+
+# Ponting the loop object again for creating circle.
 ll.insert(loop)
 ll.insert(Node(5))
 ll.insert(Node(6))
